@@ -5,18 +5,21 @@ const ErrorRoute = require("./utils/error");
 const recipeRoute = require("./routes/reciperoutes");
 const app = express();
 
-// to parse the data
+
+// To parse the data
 app.use(express.json());
 
-// middeware to log
+
+// Middleware to log
 app.use(logger);
 app.use(morgan("dev"));
 
-// route path
-app.use("/recipe", recipeRoute);
-// error route
-app.use(ErrorRoute);
 
-app.use("/api/v1/auth",recipeRoute);
+// Route paths
+app.use("/api/v1/auth", recipeRoute);
+
+
+// Error handling middleware (keep it last)
+app.use(ErrorRoute);
 
 module.exports = app;

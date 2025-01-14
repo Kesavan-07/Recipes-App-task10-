@@ -3,15 +3,15 @@ const recipeController = require("../controllers/recipecontroller");
 
 const recipeRoute = express.Router();
 
-// crate recipe
-recipeRoute.post("/", recipeController.createRecipe);
-// get recipeee
-recipeRoute.get("/", recipeController.getAllRecipes);
-// get recipee by id
-recipeRoute.get("/:id", recipeController.getRecipeById);
-// update put
-recipeRoute.put("/:id", recipeController.updateRecipe);
-// delete recipee
-recipeRoute.delete("/:id", recipeController.deleteRecipe);
+// create recipe
+recipeRoute.post("/create", recipeController.createRecipe);
+// get all recipes
+recipeRoute.get("/all", recipeController.getAllRecipes);
+// get recipe by id
+recipeRoute.get("/", recipeController.getRecipeById);
+// update recipe
+recipeRoute.put("/update", recipeController.updateRecipe);
+// delete recipe
+recipeRoute.delete("/delete", recipeController.deleteRecipe);
 
 module.exports = recipeRoute;
